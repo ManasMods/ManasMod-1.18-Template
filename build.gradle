@@ -18,6 +18,19 @@ apply plugin: 'org.spongepowered.mixin'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'maven-publish'
 
+ext {
+    if (!project.hasProperty('manasmodsUsername')) {
+        System.out.println("No ManasMods Repo User found.")
+        //DO NOT WRITE ANYTHING INTO THIS FIELD! ANYONE CEN SEE THIS FIELD!!
+        manasmodsUsername = ""
+    }
+
+    if (!project.hasProperty('manasmodsPassword')) {
+        System.out.println("No ManasMods Repo User password found.")
+        //DO NOT WRITE ANYTHING INTO THIS FIELD! ANYONE CEN SEE THIS FIELD!!
+        manasmodsPassword = ""
+    }
+}
 
 group = 'com.github.manasmods'
 version = "${minecraftVersion}-${modVersion}"
